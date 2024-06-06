@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://5r4wp7p7hssm"]
+
+[ext_resource type="PackedScene" uid="uid://0dup4f8qfufo" path="res://assets/SimpleApocalypseInterior/FBX/AI_Env_Floor_01_Blank.fbx" id="1_4ncgt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b8x42"]
+size = Vector3(5, 0.1, 5)
+
+[node name="Floor" type="StaticBody3D"]
+
+[node name="AI_Env_Floor_01_Blank" parent="." instance=ExtResource("1_4ncgt")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -0.0439057, 2.5)
+shape = SubResource("BoxShape3D_b8x42")
+
+[editable path="AI_Env_Floor_01_Blank"]

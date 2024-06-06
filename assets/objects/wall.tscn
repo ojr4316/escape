@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dj7aj620ore82"]
+
+[ext_resource type="PackedScene" uid="uid://bi6eatd02ahdq" path="res://assets/SimpleApocalypseInterior/FBX/AI_Env_Wall_Bar_Blank.fbx" id="1_ac2te"]
+[ext_resource type="Material" uid="uid://ed6s7bcdiht1" path="res://assets/materials/apocalypse_mat.tres" id="2_ocpuf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b8x42"]
+size = Vector3(5, 5, 0.1)
+
+[node name="wall" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.5, 0)
+shape = SubResource("BoxShape3D_b8x42")
+
+[node name="AI_Env_Wall_Bar_Blank" parent="." instance=ExtResource("1_ac2te")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 5, 0, 0)
+
+[node name="AI_Env_Wall_Bar_Blank" parent="AI_Env_Wall_Bar_Blank" index="0"]
+surface_material_override/0 = ExtResource("2_ocpuf")
+
+[editable path="AI_Env_Wall_Bar_Blank"]

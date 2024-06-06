@@ -1,0 +1,26 @@
+[gd_resource type="VisualShader" load_steps=2 format=3 uid="uid://ci026a1fkmqe6"]
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_sgnd0"]
+constant = 3.0
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+
+
+
+void fragment() {
+// FloatConstant:2
+	float n_out2p0 = 3.000000;
+
+
+// Output:0
+	EMISSION = vec3(n_out2p0);
+
+
+}
+"
+nodes/fragment/2/node = SubResource("VisualShaderNodeFloatConstant_sgnd0")
+nodes/fragment/2/position = Vector2(100, 260)
+nodes/fragment/connections = PackedInt32Array(2, 0, 0, 5)

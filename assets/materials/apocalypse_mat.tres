@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ed6s7bcdiht1"]
+
+[ext_resource type="Texture2D" uid="uid://cb5t4jkfh4k4j" path="res://assets/SimpleApocalypseInterior/Textures/ApocalypseInteriors_Texture.png" id="1_m6qdq"]
+
+[resource]
+albedo_texture = ExtResource("1_m6qdq")
