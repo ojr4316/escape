@@ -1,13 +1,13 @@
 extends CharacterBody3D
 
 @export var walk_speed = 6.5
-@export var run_speed = 12
+@export var run_speed = 11
 @export var slow_speed = 3
 @export var jump = 4
 @export var zoom_fov = 30
 
-@export var flashlight_energy = 1.5
-var flashlightOn = true
+@export var flashlight_energy = 0.6
+var flashlightOn = false
 
 var fov = 75
 
@@ -17,16 +17,21 @@ var look_sensitivity = 0.005
 var gravity = 15
 var velocity_y = 0
 
-var canMove := true
+var canMove := false
 
 @onready var camera:Camera3D = $Camera3D
 @onready var interactor: Area3D = $Camera3D/Interactor
 @onready var flashlight: SpotLight3D = $Camera3D/SpotLight3D
 
+@onready var start_overlay: CanvasLayer = $StartOverlay
+@onready var start_timer: Timer = $StartTimer
+
 var show_phone = false
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
+	start_timer.start(1.2)
 
 func _physics_process(delta):
 	# Cancel movement if in dialogue (or cutscene or something)
@@ -79,3 +84,11 @@ func _input(event):
 
 func set_move(t):
 	canMove = t
+
+func show_overlay():
+	start_overlay.show()
+	start_timer.start(0.8)
+
+func _on_start_timer_timeout() -> void:
+	canMove = true
+	start_overlay.hide()

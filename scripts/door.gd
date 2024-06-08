@@ -5,6 +5,8 @@ class_name Door
 @export var open := false
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+var locked := true
+
 var opened_out := false
 
 signal DoorOpened
@@ -14,6 +16,10 @@ func _ready() -> void:
 	animation_player.play("RESET")
 
 func interact():
+	if locked:
+		animation_player.play("locked")
+		return
+	
 	if open:
 		close_door()
 	else:

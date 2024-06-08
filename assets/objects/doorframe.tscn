@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8v2nlkfrwodq"]
+[gd_scene load_steps=9 format=3 uid="uid://b8v2nlkfrwodq"]
 
 [ext_resource type="Material" uid="uid://ed6s7bcdiht1" path="res://assets/materials/apocalypse_mat.tres" id="1_k67hh"]
 
@@ -42,6 +42,17 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_juana")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ubidk"]
+albedo_color = Color(0.364706, 0.321569, 0.282353, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_20dos"]
+material = SubResource("StandardMaterial3D_ubidk")
+size = Vector3(1.4, 1.25, 0.38)
+
+[sub_resource type="BoxMesh" id="BoxMesh_x0wmh"]
+material = SubResource("StandardMaterial3D_ubidk")
+size = Vector3(5, 0.35, 0.38)
+
 [node name="Doorway" type="StaticBody3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -57,3 +68,21 @@ transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 5, 0, 0)
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_x0ck8")
 surface_material_override/0 = ExtResource("1_k67hh")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-100, 0, 8.74228e-06, 0, 100, 0, -8.74228e-06, 0, -100, 0, 0, 0)
+cast_shadow = 0
+mesh = SubResource("ArrayMesh_x0ck8")
+surface_material_override/0 = ExtResource("1_k67hh")
+
+[node name="BottomFiller" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2424, 0.638906, 0)
+mesh = SubResource("BoxMesh_20dos")
+
+[node name="BottomFiller2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.702343, 0.638906, 0)
+mesh = SubResource("BoxMesh_20dos")
+
+[node name="TopFiller" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 5.45077, 0.0418172)
+mesh = SubResource("BoxMesh_x0wmh")

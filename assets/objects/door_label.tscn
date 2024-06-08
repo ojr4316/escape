@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvuya3ojmsy2r"]
+
+[ext_resource type="Script" path="res://scripts/door_label.gd" id="1_u78jp"]
+[ext_resource type="FontFile" uid="uid://dmwbglwcmqkye" path="res://assets/fonts/JosefinSans-Light.ttf" id="2_wb5jp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_um7vo"]
+albedo_color = Color(0.199625, 0.20758, 0.269441, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_67t5p"]
+material = SubResource("StandardMaterial3D_um7vo")
+size = Vector3(0.02, 0.3, 0.4)
+
+[node name="DoorLabel" type="Node3D"]
+script = ExtResource("1_u78jp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_67t5p")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0111599, -0.0792375, 0.0724715)
+shaded = true
+modulate = Color(0.625597, 0.625597, 0.625597, 1)
+text = "736"
+font = ExtResource("2_wb5jp")
+font_size = 28
+outline_size = 4

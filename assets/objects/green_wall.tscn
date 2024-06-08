@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://crvtijo02k5ed"]
+[gd_scene load_steps=9 format=3 uid="uid://crvtijo02k5ed"]
 
 [ext_resource type="Material" uid="uid://ed6s7bcdiht1" path="res://assets/materials/apocalypse_mat.tres" id="2_esu1s"]
 
@@ -47,7 +47,11 @@ albedo_color = Color(0.0941176, 0.133333, 0.0941176, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_o5668"]
 material = SubResource("StandardMaterial3D_udsqf")
-size = Vector3(5, 5, 0.05)
+size = Vector3(5, 0.5, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_d1wfu"]
+material = SubResource("StandardMaterial3D_udsqf")
+size = Vector3(5, 0.2, 0.2)
 
 [node name="wall" type="StaticBody3D"]
 
@@ -60,6 +64,10 @@ transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 mesh = SubResource("ArrayMesh_m2ngo")
 surface_material_override/0 = ExtResource("2_esu1s")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.47103, 2.2616, 0)
+[node name="BottomFiller" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.47103, -0.0365229, -0.0569221)
 mesh = SubResource("BoxMesh_o5668")
+
+[node name="TopFiller" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.47103, 4.31403, -0.0569221)
+mesh = SubResource("BoxMesh_d1wfu")

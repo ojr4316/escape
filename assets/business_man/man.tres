@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://godht6pq1vc1"]
+
+[ext_resource type="Texture2D" uid="uid://1h7c5gdvsqck" path="res://assets/business_man/textures/business_man_albedo.png" id="1_tnr6j"]
+[ext_resource type="Texture2D" uid="uid://cnxqhsfcjt5yl" path="res://assets/business_man/textures/business_man_ao.png" id="2_semog"]
+[ext_resource type="Texture2D" uid="uid://bjkvbe1amj8m4" path="res://assets/business_man/textures/business_man_spec.png" id="3_r0esd"]
+[ext_resource type="Texture2D" uid="uid://crll3y4xi7838" path="res://assets/business_man/textures/business_man_normal.png" id="4_70vh3"]
+
+[resource]
+albedo_texture = ExtResource("1_tnr6j")
+metallic = 1.0
+metallic_texture = ExtResource("3_r0esd")
+normal_enabled = true
+normal_texture = ExtResource("4_70vh3")
+ao_enabled = true
+ao_texture = ExtResource("2_semog")

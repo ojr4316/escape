@@ -4,3 +4,5 @@
 
 [resource]
 albedo_texture = ExtResource("1_m6qdq")
+albedo_texture_force_srgb = true
+emission = Color(0.69, 0.67528, 0.4692, 1)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c8echsfuwi22m"]
+[gd_scene load_steps=13 format=3 uid="uid://c8echsfuwi22m"]
 
 [ext_resource type="Script" path="res://scripts/door_container.gd" id="1_0g500"]
 [ext_resource type="Material" uid="uid://ed6s7bcdiht1" path="res://assets/materials/apocalypse_mat.tres" id="2_0lxv2"]
@@ -102,9 +102,21 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.5, 1, 0, -0.669623, 0, 0.742701)
 
+[sub_resource type="Animation" id="Animation_i4n8o"]
+resource_name = "locked"
+length = 0.7
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.1, 1, 0, 0, 0.08, 0.2, 1, 0, 0, -0.08, 0.3, 1, 0, 0, 0.08, 0.4, 1, 0, 0, -0.08, 0.5, 1, 0, 0, 0.08, 0.6, 1, 0, 0, -0.08, 0.7, 1, 0, 0, 0)
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_88ftt"]
 _data = {
 "RESET": SubResource("Animation_he1cr"),
+"locked": SubResource("Animation_i4n8o"),
 "open": SubResource("Animation_wr1p7"),
 "open_out": SubResource("Animation_qkek4")
 }
@@ -113,7 +125,6 @@ _data = {
 script = ExtResource("1_0g500")
 
 [node name="DoorAnimatableBody3D" type="AnimatableBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("2_022sg")
 
 [node name="InteractArea" type="Area3D" parent="DoorAnimatableBody3D" groups=["interactable"]]
@@ -127,7 +138,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.998757, 1.90172, 0)
 shape = SubResource("BoxShape3D_gpojd")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="DoorAnimatableBody3D"]
-transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0.08)
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_6fwxk")
 skeleton = NodePath("../..")

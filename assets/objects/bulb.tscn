@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bv4fkbrunno58"]
+[gd_scene load_steps=7 format=3 uid="uid://bv4fkbrunno58"]
 
 [ext_resource type="Material" uid="uid://ed6s7bcdiht1" path="res://assets/materials/apocalypse_mat.tres" id="1_4awd0"]
+[ext_resource type="Script" path="res://scripts/light.gd" id="1_w2tlv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4c52r"]
 
@@ -42,6 +43,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_v14aa")
 
 [node name="Light" type="StaticBody3D"]
+script = ExtResource("1_w2tlv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.89878, 0)
@@ -54,12 +56,11 @@ mesh = SubResource("ArrayMesh_47ymn")
 surface_material_override/0 = ExtResource("1_4awd0")
 
 [node name="SpotLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(0.999815, -1.22102e-15, -0.0192323, 0.0192323, -4.37114e-08, 0.999815, -8.40672e-10, -1, -4.37033e-08, 0, 3.33396, -0.00110097)
+transform = Transform3D(0.999815, -1.22102e-15, -0.0192323, 0.0192323, -4.37114e-08, 0.999815, -8.40672e-10, -1, -4.37033e-08, 0, 3.13981, -0.00110097)
 light_color = Color(1, 1, 0.552941, 1)
-light_energy = 2.0
 light_indirect_energy = 2.0
 light_volumetric_fog_energy = 2.0
-light_specular = 2.0
+light_size = 0.8
 shadow_enabled = true
-omni_range = 20.0
+omni_range = 8.0
 omni_shadow_mode = 0

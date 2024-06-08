@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://bg4twgvxhk34h"]
+
+[ext_resource type="Texture2D" uid="uid://mjqky0cek1aw" path="res://assets/pizza/textures/carboardEdge_Base_color.png" id="1_5t0bl"]
+[ext_resource type="Texture2D" uid="uid://cg1jd2pjuk8d5" path="res://assets/pizza/textures/carboardEdge_Metallic.png" id="2_nglqu"]
+[ext_resource type="Texture2D" uid="uid://b4rfj7k1v6bt7" path="res://assets/pizza/textures/carboardEdge_Roughness.png" id="3_xy4g3"]
+
+[resource]
+albedo_texture = ExtResource("1_5t0bl")
+metallic = 1.0
+metallic_texture = ExtResource("2_nglqu")
+roughness_texture = ExtResource("3_xy4g3")

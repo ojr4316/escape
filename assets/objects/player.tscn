@@ -1,10 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://bt4p85ss6akus"]
+[gd_scene load_steps=7 format=3 uid="uid://bt4p85ss6akus"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_rp0kh"]
 [ext_resource type="Script" path="res://scripts/interactor.gd" id="2_46cgk"]
+[ext_resource type="PackedScene" uid="uid://n48ryap01bvb" path="res://assets/objects/pizza.tscn" id="2_fmjxe"]
+[ext_resource type="FontFile" uid="uid://c45xnbvlom7f4" path="res://assets/fonts/JosefinSans-Regular.ttf" id="4_n20kw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3w8pr"]
-height = 2.2
+radius = 0.6
+height = 3.2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r68ct"]
 size = Vector3(1, 0.678818, 1.64825)
@@ -15,25 +18,28 @@ floor_max_angle = 3.14159
 script = ExtResource("1_rp0kh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.52869, 0)
 shape = SubResource("CapsuleShape3D_3w8pr")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.94918, -0.487774)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.78436, -0.487774)
+
+[node name="Pizza" parent="Camera3D" instance=ExtResource("2_fmjxe")]
+transform = Transform3D(0.950886, 0.202459, 0.234148, -0.222295, 0.973045, 0.0613937, -0.215407, -0.110428, 0.970261, -0.425861, -0.34125, -0.512115)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 0.999387, 0.0350216, 0, -0.0350216, 0.999387, 0.0799243, -0.0990757, 0.0605859)
+transform = Transform3D(1, 0, 0, 0, 0.999387, 0.0350216, 0, -0.0350216, 0.999387, 0.170736, -0.0990758, -0.0729159)
 light_color = Color(1, 0.996078, 0.584314, 1)
-light_energy = 1.5
+light_energy = 0.0
 light_indirect_energy = 0.0
-light_volumetric_fog_energy = 0.0
-light_size = 1.0
-light_specular = 1.0
+light_volumetric_fog_energy = 0.5
+light_size = 0.5
 shadow_enabled = true
 shadow_reverse_cull_face = true
-spot_range = 8.0
-spot_angle = 20.0
-spot_angle_attenuation = 1.93187
+spot_range = 10.0
+spot_attenuation = 0.5
+spot_angle = 30.0
+spot_angle_attenuation = 0.482967
 
 [node name="Interactor" type="Area3D" parent="Camera3D"]
 script = ExtResource("2_46cgk")
@@ -41,3 +47,59 @@ script = ExtResource("2_46cgk")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/Interactor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0290909, -0.82901)
 shape = SubResource("BoxShape3D_r68ct")
+
+[node name="StartOverlay" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="StartOverlay"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.000190628
+color = Color(0.59, 0.0413, 0.0413, 0.509804)
+
+[node name="Label" type="Label" parent="StartOverlay"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -130.0
+offset_top = -57.0
+offset_right = 128.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_n20kw")
+theme_override_font_sizes/font_size = 24
+text = "Deliver pizza to 'Ronnie'"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="StartOverlay"]
+auto_translate_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.5
+offset_top = 39.0
+offset_right = 42.5
+offset_bottom = 105.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_n20kw")
+theme_override_font_sizes/font_size = 20
+text = "
+
+Apt #713 "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]

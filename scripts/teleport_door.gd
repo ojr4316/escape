@@ -6,6 +6,5 @@ var open := false
 signal DoorClicked
 
 func interact():
-	print("pee")
 	DoorClicked.emit()
 	
